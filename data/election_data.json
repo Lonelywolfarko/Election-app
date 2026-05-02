@@ -1,0 +1,150 @@
+{
+  "election_info": {
+    "country": "India",
+    "minimum_voting_age": 18,
+    "upcoming_elections": [
+      {
+        "name": "State Assembly Elections",
+        "date": "2025-11-15",
+        "state": "Bihar",
+        "type": "State"
+      },
+      {
+        "name": "General Elections",
+        "date": "2029-04-01",
+        "state": "All India",
+        "type": "National"
+      }
+    ]
+  },
+
+  "registration_steps": [
+    {
+      "id": 1,
+      "title": "Check Eligibility",
+      "icon": "✅",
+      "description": "You must be 18+ years old and an Indian citizen to vote.",
+      "action": "Verify your age and citizenship status."
+    },
+    {
+      "id": 2,
+      "title": "Register Voter ID",
+      "icon": "📋",
+      "description": "Apply for your Voter ID (EPIC) at the Election Commission of India portal or your local BLO office.",
+      "action": "Visit voters.eci.gov.in and fill Form 6."
+    },
+    {
+      "id": 3,
+      "title": "Verify Details",
+      "icon": "🔍",
+      "description": "Once registered, verify your name in the electoral roll using your EPIC number or mobile number.",
+      "action": "Check your name on the voter list at electoralsearch.eci.gov.in."
+    },
+    {
+      "id": 4,
+      "title": "Voting Day Instructions",
+      "icon": "🗳️",
+      "description": "On election day, carry your Voter ID or any valid photo ID to the polling booth.",
+      "action": "Find your polling booth at boothapp.eci.gov.in."
+    }
+  ],
+
+  "valid_id_documents": [
+    "Voter ID Card (EPIC)",
+    "Aadhaar Card",
+    "Passport",
+    "Driving License",
+    "PAN Card",
+    "MNREGA Job Card",
+    "Bank / Post Office Passbook with Photo",
+    "Smart Card issued by RGI"
+  ],
+
+  "faqs": [
+    {
+      "keywords": ["minimum age", "age limit", "how old", "age"],
+      "answer": "The minimum voting age in India is 18 years. You must be at least 18 years old on the qualifying date (1st January of the year of electoral roll revision) to be eligible to vote."
+    },
+    {
+      "keywords": ["register", "registration", "sign up", "how to register", "voter id"],
+      "answer": "To register as a voter:\n1. Visit voters.eci.gov.in\n2. Click on 'New Registration'\n3. Fill Form 6 with your personal details\n4. Upload a passport-sized photo and proof of age/address\n5. Submit and note your reference number\n6. Your Voter ID will be delivered within 30 days."
+    },
+    {
+      "keywords": ["documents", "document", "id proof", "proof", "what to bring"],
+      "answer": "Documents required for registration:\n• Proof of Age: Birth certificate, Aadhaar, Passport, or School leaving certificate\n• Proof of Address: Aadhaar, utility bill, bank statement, or rent agreement\n• Passport-sized photograph\n\nOn voting day, carry any valid government-issued photo ID."
+    },
+    {
+      "keywords": ["polling booth", "where to vote", "voting location", "booth"],
+      "answer": "To find your polling booth:\n1. Visit boothapp.eci.gov.in\n2. Enter your EPIC number or personal details\n3. Your assigned polling booth address will be displayed\n4. You can also call the Election Commission helpline: 1950"
+    },
+    {
+      "keywords": ["nri", "overseas", "abroad", "foreign"],
+      "answer": "NRIs (Non-Resident Indians) who are Indian citizens can register as Overseas Voters by filling Form 6A on the ECI portal. You can vote in person at your constituency in India but cannot vote by postal ballot or proxy."
+    },
+    {
+      "keywords": ["date", "when", "election date", "schedule"],
+      "answer": "Upcoming elections are announced by the Election Commission of India. Check the official ECI website at eci.gov.in for the latest election schedule and Model Code of Conduct dates."
+    },
+    {
+      "keywords": ["pvhc", "disable", "disabled", "wheelchair", "specially abled", "accessibility"],
+      "answer": "The Election Commission ensures accessibility for persons with disabilities:\n• Ramp access at all polling booths\n• Companion allowed for visually impaired or orthopedically challenged voters\n• Priority queuing for PwD voters\n• Postal ballot facility available for eligible voters"
+    }
+  ],
+
+  "fallback_response": "I'm sorry, I don't have specific information on that. For detailed queries, please contact the Election Commission of India helpline at 1950 or visit eci.gov.in.",
+
+  "location_data": {
+    "west bengal": {
+      "burdwan": {
+        "location": {
+          "state": "West Bengal",
+          "district": "Burdwan"
+        },
+        "election": {
+          "type": "General Assembly",
+          "date": "2026-05-12",
+          "polling_info": "Polling stations open from 7 AM to 6 PM"
+        },
+        "instructions": [
+          "Carry valid voter ID",
+          "Check your name in voter list",
+          "Reach polling booth early"
+        ]
+      },
+      "kolkata": {
+        "location": {
+          "state": "West Bengal",
+          "district": "Kolkata"
+        },
+        "election": {
+          "type": "General Assembly",
+          "date": "2026-05-18",
+          "polling_info": "Polling stations open from 7 AM to 5 PM"
+        },
+        "instructions": [
+          "Carry valid voter ID",
+          "Free public transport available",
+          "Mask recommended inside booth"
+        ]
+      }
+    },
+    "maharashtra": {
+      "pune": {
+        "location": {
+          "state": "Maharashtra",
+          "district": "Pune"
+        },
+        "election": {
+          "type": "Municipal Corporation",
+          "date": "2027-02-14",
+          "polling_info": "Polling stations open from 8 AM to 5 PM"
+        },
+        "instructions": [
+          "Carry valid voter ID or Aadhar",
+          "Avoid carrying bags inside the station",
+          "Check ward details online beforehand"
+        ]
+      }
+    }
+  }
+}

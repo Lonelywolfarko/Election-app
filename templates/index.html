@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Election Guide Assistant 🗳️</title>
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+
+  <!-- ── Header ───────────────────────────────────────────── -->
+  <header>
+    <div class="header-emblem">🗳️</div>
+    <div class="header-text">
+      <h1>Election Guide Assistant</h1>
+      <p>Empowering every citizen — one vote at a time</p>
+    </div>
+    <span class="header-badge">India · ECI</span>
+  </header>
+
+
+  <!-- ── Main Grid ─────────────────────────────────────────── -->
+  <main>
+
+    <!-- ┌─────────────────────────────────────────────────────┐ -->
+    <!-- │  SECTION 1: Eligibility Checker                     │ -->
+    <!-- └─────────────────────────────────────────────────────┘ -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon icon-navy">✅</div>
+        <div>
+          <h2>Eligibility Checker</h2>
+          <p>Find out if you can vote in India</p>
+        </div>
+      </div>
+
+      <!-- Age Input Form -->
+      <div class="form-group">
+        <label for="age-input">Your Age</label>
+        <input
+          type="number"
+          id="age-input"
+          placeholder="Enter your age (e.g. 22)"
+          min="0"
+          max="120"
+          autocomplete="off"
+        />
+      </div>
+
+      <button id="check-btn" class="btn-primary">
+        Check Eligibility
+      </button>
+
+      <!-- Result appears here dynamically -->
+      <div id="eligibility-result"></div>
+    </section>
+
+
+    <!-- ┌─────────────────────────────────────────────────────┐ -->
+    <!-- │  SECTION 2: Step-by-Step Guided Journey             │ -->
+    <!-- └─────────────────────────────────────────────────────┘ -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon icon-gold">📋</div>
+        <div>
+          <h2>Voter Journey</h2>
+          <p>Your step-by-step path to voting</p>
+        </div>
+      </div>
+
+      <!-- Steps rendered dynamically via JS -->
+      <div id="steps-container">
+        <div class="loading-text">⏳ Loading steps…</div>
+      </div>
+
+      <!-- Upcoming elections rendered below steps -->
+      <div id="elections-container"></div>
+    </section>
+
+
+    <!-- ┌─────────────────────────────────────────────────────┐ -->
+    <!-- │  SECTION 3: Location-Based Election Info            │ -->
+    <!-- └─────────────────────────────────────────────────────┘ -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon icon-green">📍</div>
+        <div>
+          <h2>Election Info by Location</h2>
+          <p>Find upcoming elections near you</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="state-input">State</label>
+        <input type="text" id="state-input" list="state-options" placeholder="e.g. West Bengal" autocomplete="off" />
+        <datalist id="state-options">
+          <option value="West Bengal"></option>
+          <option value="Maharashtra"></option>
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="district-input">District</label>
+        <input type="text" id="district-input" placeholder="e.g. Burdwan" autocomplete="off" />
+      </div>
+
+      <button id="location-btn" class="btn-primary" style="margin-bottom: 20px;">
+        Find Election Info
+      </button>
+
+      <!-- Dynamic location data populates here -->
+      <div id="location-result-container"></div>
+    </section>
+
+    <!-- ┌─────────────────────────────────────────────────────┐ -->
+    <!-- │  SECTION 3.5: Document Checklist                      │ -->
+    <!-- └─────────────────────────────────────────────────────┘ -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon icon-blue">🧾</div>
+        <div>
+          <h2>Document Checklist</h2>
+          <p>Generate a personalized checklist for registration</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="checklist-age">Your Age</label>
+        <input type="number" id="checklist-age" placeholder="e.g. 21" min="0" autocomplete="off" />
+      </div>
+
+      <div class="form-group">
+        <label for="checklist-state">State</label>
+        <input type="text" id="checklist-state" placeholder="e.g. Maharashtra" autocomplete="off" />
+      </div>
+
+      <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+        <input type="checkbox" id="checklist-first-time" style="width: 18px; height: 18px; accent-color: var(--navy);" />
+        <label for="checklist-first-time" style="margin-bottom: 0; text-transform: none; font-size: 0.95rem;">First-time voter?</label>
+      </div>
+
+      <button id="checklist-btn" class="btn-primary" style="margin-top: 10px;">
+        Generate Checklist
+      </button>
+
+      <!-- Dynamic checklist result populates here -->
+      <div id="checklist-result-container"></div>
+    </section>
+
+    <!-- ┌─────────────────────────────────────────────────────┐ -->
+    <!-- │  SECTION 4: Voting Journey Tracker                  │ -->
+    <!-- └─────────────────────────────────────────────────────┘ -->
+    <section class="section-card full-width">
+      <div class="section-header">
+        <div class="section-icon icon-blue">🗺️</div>
+        <div>
+          <h2>Voting Journey Tracker</h2>
+          <p>Track your progress towards becoming vote-ready</p>
+        </div>
+      </div>
+
+      <div class="journey-dashboard">
+        <!-- Interactive tracker bar will generate here -->
+        <div id="journey-tracker-container" class="journey-container"></div>
+        
+        <div class="journey-actions">
+          <p id="journey-motivation" class="journey-message">Loading your journey...</p>
+          <button id="journey-next-btn" class="btn-primary btn-journey" style="display: none;">Complete Registration Step &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ┌─────────────────────────────────────────────────────┐ -->
+    <!-- │  SECTION 5: Chat Assistant (full width)             │ -->
+    <!-- └─────────────────────────────────────────────────────┘ -->
+    <section class="section-card full-width">
+      <div class="section-header" style="justify-content: space-between; align-items: flex-start;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="section-icon icon-green">💬</div>
+          <div>
+            <h2>Chat Assistant</h2>
+            <p>Ask any question about elections, registration, or voting</p>
+          </div>
+        </div>
+        <div class="chat-actions">
+          <button id="theme-toggle-btn" class="action-btn" title="Toggle Dark Mode">🌙</button>
+          <button id="clear-chat-btn" class="action-btn" title="Clear Chat">🗑️</button>
+        </div>
+      </div>
+
+      <!-- Suggestion chips for quick questions -->
+      <div class="chat-suggestions">
+        <button class="suggestion-chip" onclick="askSuggestion('What is the minimum voting age?')">
+          Minimum age?
+        </button>
+        <button class="suggestion-chip" onclick="askSuggestion('How do I register for a voter ID?')">
+          How to register?
+        </button>
+        <button class="suggestion-chip" onclick="askSuggestion('What documents are needed?')">
+          Documents needed?
+        </button>
+        <button class="suggestion-chip" onclick="askSuggestion('How do I find my polling booth?')">
+          Polling booth?
+        </button>
+        <button class="suggestion-chip" onclick="askSuggestion('Are there facilities for disabled voters?')">
+          Accessibility?
+        </button>
+        <button class="suggestion-chip" onclick="askSuggestion('When is the next election?')">
+          Election dates?
+        </button>
+      </div>
+
+      <!-- Chat messages window -->
+      <div class="chat-messages" id="chat-messages"></div>
+
+      <!-- Chat input row -->
+      <div class="chat-input-row">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Ask me anything about voting…"
+          autocomplete="off"
+          maxlength="300"
+        />
+        <button id="send-btn" class="btn-send">Send ↑</button>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <p>
+      Built by <strong>ARKO MONDAL</strong> ·
+      Data sourced from <strong>Election Commission of India</strong> guidelines ·
+      Not an official ECI product.
+    </p>
+    <p class="warning" style="margin-top: 10px; font-size: 0.85em; color: #d9534f; font-weight: bold;">
+      ⚠️ Disclaimer: All information provided in this application is for beta testing and educational purposes only. It is not official or legally verified election data.
+    </p>
+  </footer>
+
+
+  <!-- Load Confetti Library (Bonus Feature) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Load the frontend script last -->
+  <script src="../static/script.js"></script>
+
+</body>
+</html>
